@@ -14,10 +14,10 @@ Axios
 Storybook, Webpack Dev Server, Jest, Testing Library
 The Scheduler client application created using Create React App. Express is the basis for the Scheduler API server application [Scheduler API server application](https://github.com/ntechd/scheduler-api.git)
 # Screenshots
-!["Appointment form"](https://github.com/ntechd/scheduler/blob/master/docs/adding-appointment.png) 
-[](appointment-form.png)
-[](delete.png)
-[](example-appointment.png)
+!["Appointment form"](appointment-form.png)
+!["Appointment adding"](https://github.com/ntechd/scheduler/blob/master/docs/adding-appointment.png) 
+!["example"](example-appointment.png)
+!["delete shown"](delete.png)
 
 ## Setup
 
