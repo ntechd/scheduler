@@ -1,15 +1,57 @@
 import React from "react";
-
 import "components/Application.scss";
+import DayList from "./Daylist";
+import Appointment from "./Appointment";
+import {
+  getAppointmentsForDay,
+  getInterviewersForDay,
+} from "helpers/selectors";
+import useApplicationData from "hooks/useApplicationData";
 
-export default function Application(props) {
+export default function Application() {
+  const { state, setDay, bookInterview, cancelInterview, editInterview } =
+    useApplicationData();
+
+  const interviewers = getInterviewersForDay(state, state.day);
+
+  const appointments = getAppointmentsForDay(state, state.day).map(
+    (appointment) => {
+      return (
+        <Appointment
+          key={appointment.id}
+          id={appointment.id}
+          time={appointment.time}
+          interview={appointment.interview}
+          interviewers={interviewers}
+          bookInterview={bookInterview}
+          deleteInterview={cancelInterview}
+          editInterview={editInterview}
+        />
+      );
+    }
+  );
+
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
+        <img
+          className="sidebar--centered"
+          src="images/logo.png"
+          alt="Interview Scheduler"
+        />
+        <hr className="sidebar__separator sidebar--centered" />
+        <nav className="sidebar__menu">
+          <DayList days={state.days} value={state.day} onChange={setDay} />
+        </nav>
+        <img
+          className="sidebar__lhl sidebar--centered"
+          src="images/lhl.png"
+          alt="Lighthouse Labs"
+        />{" "}
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        {appointments}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
