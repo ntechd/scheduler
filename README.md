@@ -21,7 +21,6 @@ The Scheduler client application created using Create React App. Express is the 
 !["example"](https://github.com/ntechd/scheduler/blob/master/docs/example-appointment.png)
 !["delete shown"](https://github.com/ntechd/scheduler/blob/master/docs/delete.png)
 
-
 ## Setup
 
 Install dependencies with `npm install`.
